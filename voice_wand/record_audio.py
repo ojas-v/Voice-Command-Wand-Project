@@ -4,8 +4,8 @@ import struct
 import time
 import os
 
-# --- CONFIGURATION ---
-COM_PORT = 'COM4'       # <--- CHANGE THIS to your ESP32 Port
+# CONFIGURATION 
+COM_PORT = 'COM4'       # ESP32 Port
 BAUD_RATE = 921600
 SAMPLE_RATE = 16000     # Must match ESP32
 DURATION = 1            # Seconds per sample
@@ -58,9 +58,9 @@ def record_sample(label, filename):
         if 'ser' in locals() and ser.is_open:
             ser.close()
 
-# --- MAIN MENU ---
+# MAIN MENU 
 while True:
-    print("\n--- DATA COLLECTOR ---")
+    print("\n DATA COLLECTOR ")
     print("1. Record 'MATRIX'")
     print("2. Record 'STOP'")
     print("3. Record 'NOISE'")
