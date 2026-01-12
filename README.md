@@ -68,6 +68,7 @@ graph LR
     C -->|Serial Data| F[Python Script]
     F -->|WebSocket| G[Streamlit Dashboard]
 
+```
 💻 How to Run
 1. Firmware (ESP32)
 Install the Edge Impulse Arduino Library (included in lib/).
