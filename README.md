@@ -15,10 +15,9 @@ This project demonstrates a **Full-Stack IoT Architecture**:
 3.  **The Frontend (Python Dashboard):** A Streamlit-based "Mission Control" that visualizes simulated environmental data and allows remote overrides of physical actuators.
 
 **Why "Headless"?**
-The system is designed to operate without a physical display on the device itself, relying instead on a robust serial link to a central dashboard mimicking real-world industrial IoT setups.
+The system is designed to operate without a physical display on the device itself, relying instead on a robust serial link to a central dashboard, mimicking real-world industrial IoT setups.
 
 ---
-
 
 | Voice Command | Dashboard Response |
 | :---: | :---: |
@@ -68,3 +67,28 @@ graph LR
     C -->|Trigger| E[Buzzer]
     C -->|Serial Data| F[Python Script]
     F -->|WebSocket| G[Streamlit Dashboard]
+
+💻 How to Run
+1. Firmware (ESP32)
+Install the Edge Impulse Arduino Library (included in lib/).
+
+Open firmware/firmware.ino.
+Upload to ESP32.
+
+2. Dashboard (Python)
+Ensure the ESP32 is connected via USB.
+
+# Install dependencies
+pip install streamlit pyserial pandas
+
+# Run the Mission Control
+streamlit run dashboard/app.py
+
+🔮 Future Improvements
+Implement MQTT for wireless control instead of USB Serial.
+Add hardware sensors (DHT22) for real environmental data (currently simulated for dashboard demo).
+Expand vocabulary to include "Turn Off" and "Report Status".
+
+Author
+Ojas Vaidya
+Electronics & Communication Engineering Student IIITDM Kancheepuram
