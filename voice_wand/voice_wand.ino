@@ -8,7 +8,7 @@ void setup() {
   // We use 921600 baud to handle the high volume of data (16,000 samples/sec)
   Serial.begin(921600);
   
-  // Give the serial connection a moment to stabilize
+  // serial connection a moment to stabilize
   delay(1000);
   Serial.println("ESP32 Audio Streamer Ready!");
 }
@@ -21,6 +21,6 @@ void loop() {
   Serial.println(sample);
   
   // Short delay to keep sampling rate roughly around 16kHz
-  // You can tweak this: 60us is usually a safe starting point
+  // 60us is usually a safe starting point
   delayMicroseconds(60); 
 }
