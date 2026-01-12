@@ -1,6 +1,6 @@
 /*
  * PROJECT: ESP32 TinyML Voice Command Wand
- * AUTHOR: [Your Name]
+ * AUTHOR: Ojas Vaidya
  * HARDWARE: ESP32 (DevKit V1), Analog Mic (MAX9814/9812), 5V Relay, Piezo Buzzer
  * * DESCRIPTION:
  * A "Headless" voice recognition system that uses Edge Impulse to detect keywords.
@@ -13,18 +13,18 @@
 #include <voice_wand_inferencing.h> 
 #include <Arduino.h>
 
-// --- PIN DEFINITIONS ---
+// PIN DEFINITIONS 
 #define MIC_PIN      34
 #define RELAY_PIN    26
 #define BUZZER_PIN   27
 #define LED_PIN      2   // Onboard Blue LED
 
-// --- SETTINGS ---
+// SETTINGS 
 #define CONFIDENCE_THRESHOLD 0.80
 #define SAMPLING_FREQ_HZ     16000 // 16kHz Audio
 #define SAMPLING_PERIOD_US   (1000000 / SAMPLING_FREQ_HZ)
 
-// --- GLOBALS ---
+// GLOBALS
 float features[EI_CLASSIFIER_DSP_INPUT_FRAME_SIZE];
 unsigned long lastTelemetry = 0;
 bool relayState = false;
@@ -55,7 +55,7 @@ void setup() {
 
 void loop() {
   
-  // --- 1. SENSOR TELEMETRY ---
+  // 1. SENSOR TELEMETRY
   // Sends environment data to dashboard. 
   // NOTE: Using simulated values for testing/demo purposes.
   if (millis() - lastTelemetry > 2000) {
@@ -72,13 +72,13 @@ void loop() {
       lastTelemetry = millis();
   }
 
-  // --- 2. SERIAL REMOTE CONTROL ---
+  // 2. SERIAL REMOTE CONTROL
   if (Serial.available()) {
       char cmd = Serial.read();
       if (cmd == 'T') toggleLight("REMOTE");
   }
 
-  // --- 3. VOICE INFERENCE ---
+  // 3. VOICE INFERENCE-
   
   // Record Audio
   // Using micros() for precise timing (better for AI than delayMicroseconds)
